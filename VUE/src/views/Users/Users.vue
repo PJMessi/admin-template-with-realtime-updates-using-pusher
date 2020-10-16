@@ -120,8 +120,8 @@ export default {
       this.callFetchUsers()
     })
 
-    this.$channel.bind('user-updated', () => {
-      this.callFetchUsers()
+    this.$channel.bind('user-updated', (e) => {
+      this.updateUserIfExists(e.user)
     })
 
   },

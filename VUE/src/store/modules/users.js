@@ -44,10 +44,10 @@ const mutations = {
   },
 
   updateUserIfExists(state, user) {
-    let foundIndex = state.users.data.findIndex(x => x.id == user.id);
+    let outdatedUser = state.users.data.find(x => x.id == user.id);
 
-    if (foundIndex != -1) {
-      state.users.data[foundIndex] = user;
+    if (outdatedUser != undefined) {
+      Object.assign(outdatedUser, user);
     }
   }
 };
